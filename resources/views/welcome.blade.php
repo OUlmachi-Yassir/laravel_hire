@@ -47,9 +47,10 @@
 <div class="flex flex-wrap justify-center items-center gap-8">
 @foreach($services as $service)
         <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
+            <div class="flex justify-between items-center">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $service->title }}</h5>
-            </a>
+                <p class="mb-1 font-normal text-gray-700 dark:text-gray-400">{{ $service->created_at }}</p>
+            </div>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $service->discreption }}, in reverse chronological order.</p>
             <p class="mb-3 font-normal text-gray-700 dark:text-blue-400 underline decoration-sky-500 ">{{ $service->contacte }}</p>
             <p class="mb-3 mr-12 inline-flex items-center bg-black font-normal rounded dark:text-white text-center px-3 py-2">{{ $service->category->titre }}</p>
@@ -59,6 +60,7 @@
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                 </svg>
             </a>
+            
         </div>
     @endforeach
 </div>
