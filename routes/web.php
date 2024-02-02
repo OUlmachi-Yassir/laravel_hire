@@ -21,6 +21,8 @@ use GuzzleHttp\Psr7\Uri;
 Route::get('/',[servController::class,'welcome'])->name('home');
 Route::get('/',[servController::class,'create'])->name('create');
 Route::post('/',[servController::class,'service'])->name('service');
+Route::delete('/service/{id}', [servController::class, 'deleteService'])->name('delete.service');
+
 
     
 Route::get('/login',[AuthManager::class,'login'])->name('login');

@@ -2,6 +2,21 @@
 @section('title','Home page')
 @section('content')
 <br><br>
+
+@auth
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+
+@endauth
 <div class="flex justify-around">
     @auth
     <h1 class="font-bold text-5xl underline decoration-sky-500  ">Hello <span class="text-sky-500 ">{{auth()->user()->name}}!!</span></h1>
@@ -60,6 +75,13 @@
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                 </svg>
             </a>
+            @auth
+            <form action="{{ route('delete.service', $service->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-lg">Delete</button>
+            </form>
+            @endauth
         </div>
     @endforeach
 </div>

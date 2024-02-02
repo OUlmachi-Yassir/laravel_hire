@@ -35,5 +35,21 @@ class servController extends Controller
         return redirect(route('service'));
     }
 
+
+    public function deleteService($id)
+{
+    $service = Service::find($id);
+
+    if (!$service) {
+        // Handle if service not found
+        return redirect()->back()->with('error', 'Service not found.');
+    }
+
+    $service->delete();
+
+    return redirect()->back()->with('success', 'Service deleted successfully.');
+}
+
+
     
 }
