@@ -52,7 +52,7 @@
                 <p class="mb-1 font-normal text-gray-700 dark:text-gray-400">{{ $service->created_at }}</p>
             </div>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $service->discreption }}, in reverse chronological order.</p>
-            <p class="hidden mb-3 font-normal text-gray-700 dark:text-blue-400 " id="contacte-{{ $service->id }}"><span class="text-white font-bold">Contacte me:</span> {{ $service->contacte }}</p>
+            <p class="hidden mb-3 font-normal text-gray-700 dark:text-blue-400 hover:underline" id="contacte-{{ $service->id }}"><span class="text-white font-bold">Contacte me:</span> {{ $service->contacte }}</p>
             <p class="mb-3 mr-12 inline-flex items-center bg-black font-normal rounded dark:text-white text-center px-3 py-2">{{ $service->category->titre }}</p>
             <a href="#" class="read-more inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" data-service-id="{{ $service->id }}">
                 Read more
