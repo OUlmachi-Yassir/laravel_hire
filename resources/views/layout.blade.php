@@ -13,28 +13,25 @@
 <body>
     @include('include.header')
     @yield('content')
-    <script>
-        const modalEl = document.getElementById('info-popup');
-        const privacyModal = new Modal(modalEl, {
-            placement: 'center'
-        });
-        const showModalEl = document.getElementById('add');
-        showModalEl.addEventListener('click', function() {
-            privacyModal.show();
-        });
+    
+<script>
+    // Open the popup when the "Open Form" button is clicked
+    document.getElementById('openPopup').addEventListener('click', function () {
+        document.getElementById('popupForm').classList.remove('hidden');
+    });
 
-        
+    // Close the popup when the "Close" button is clicked
+    document.getElementById('closePopup').addEventListener('click', function () {
+        document.getElementById('popupForm').classList.add('hidden');
+    });
 
-        const closeModalEl = document.getElementById('close-modal');
-        closeModalEl.addEventListener('click', function() {
-            privacyModal.hide();
-        });
+    // Close the popup if the background is clicked
+    document.getElementById('popupForm').addEventListener('click', function (event) {
+        if (event.target.id === 'popupForm') {
+            document.getElementById('popupForm').classList.add('hidden');
+        }
+    });
+</script>
 
-        const acceptPrivacyEl = document.getElementById('confirm-button');
-        acceptPrivacyEl.addEventListener('click', function() {
-            alert('privacy accepted');
-            privacyModal.hide();
-        });
-    </script>
 </body>
 </html>
