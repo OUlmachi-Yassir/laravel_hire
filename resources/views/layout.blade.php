@@ -32,6 +32,17 @@
         }
     });
 </script>
+<script>
+    document.querySelectorAll('.read-more').forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            const serviceId = this.getAttribute('data-service-id');
+            const contacteElement = document.getElementById('contacte-' + serviceId);
+            contacteElement.classList.toggle('hidden');
+        });
+    });
+</script>
+
 
 </body>
 </html>
