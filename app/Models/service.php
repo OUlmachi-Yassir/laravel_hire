@@ -11,7 +11,8 @@ class service extends Model
     protected $fillable =[
         'title',
         'discreption',
-        'categoryId'
+        'categoryId',
+        'contacte'
     ];  
 
     public function category()

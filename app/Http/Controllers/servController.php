@@ -27,7 +27,8 @@ class servController extends Controller
         $data = $request->validate([
             'title'=> 'required',
             'discreption'=>'required',
-            'categoryId' =>'required |exists:categories,id'
+            'categoryId' =>'required |exists:categories,id',
+            'contacte' =>'required'
         ]);
 
         $newService = service::create($data);
