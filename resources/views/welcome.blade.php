@@ -2,14 +2,16 @@
 @section('title','Home page')
 @section('content')
 <br><br>
-
+<div class="flex justify-around">
     @auth
     <h1 class="font-bold text-5xl underline decoration-sky-500  ">Hello <span class="text-sky-500 ">{{auth()->user()->name}}!!</span></h1>
     @endauth
     <br>
     @auth
-    <button id="openPopup" type="button" class="flex justify-end text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800 ">Ajouter des des services</button>
+    <button id="openPopup" type="button" class="flex justify-end text-sky-700 hover:text-white border border-sky-700 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-sky-500 dark:text-sky-500 dark:hover:text-white dark:hover:bg-sky-500 dark:focus:ring-sky-500 ">Ajouter des des services</button>
     @endauth
+</div>
+    <br><br>
     <div id="popupForm" tabindex="-1" class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
 <div class="lg:w-2/5 md:w-1/2 w-2/3">
 		<form action="{{route('service')}}" method="POST" class="bg-white p-10 rounded-lg shadow-lg min-w-full">
@@ -32,7 +34,11 @@
                     @endforeach
                 </select>
             </div>
-				
+            <div>
+                <label class="text-gray-800 font-semibold block my-3 text-md" for="name">Contacte</label>
+                <input class="w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none" type="text" name="contacte" id="title" placeholder="contacte" />
+            </div>
+				<br>
             <button id="closePopup" type="button"  class="py-2 px-4 w-full text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-200 sm:w-auto hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Cancel</button>		
 			<button id="confirm-button" type="submit" class="w-full mt-6 bg-indigo-600 rounded-lg px-4 py-2 text-lg text-white tracking-wide font-semibold font-sans">Add</button>
 		</form>
@@ -45,6 +51,7 @@
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $service->title }}</h5>
             </a>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $service->discreption }}, in reverse chronological order.</p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-blue-400 underline decoration-sky-500 ">{{ $service->contacte }}</p>
             <p class="mb-3 mr-12 inline-flex items-center bg-black font-normal rounded dark:text-white text-center px-3 py-2">{{ $service->category->titre }}</p>
             <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Read more

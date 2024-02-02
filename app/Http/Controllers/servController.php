@@ -20,7 +20,7 @@ class servController extends Controller
     public function create()
     {
         $categories = Category::all();
-        $services = service::all();
+        $services = Service::orderBy('created_at', 'desc')->get();
         return view('welcome', compact('categories','services'));
     }
     public function service(Request $request){
